@@ -4,7 +4,6 @@ config:
   - name: LOG_LEVEL
     friendly_name: Severity level to show for logging.
     info: See https://docs.python.org/2/library/logging.html#levels
-    default: DEBUG
   - name: AWS_ACCESS_KEY
     friendly_name: AWS access key
     info: Access key for AWS
