@@ -18,7 +18,7 @@ def _getdb():
     if _dbhandle is None:
         try:
             _s3db = _gets3conn().get(_dbfile)
-            _dbhandle = pickle.load(_s3db.read())
+            _dbhandle = pickle.loads(_s3db.read())
         except:
             print "Unable to load database, creating new one"
             traceback.print_exc()
