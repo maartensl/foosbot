@@ -4,6 +4,8 @@ import numpy
 import collections
 import datetime
 import simples3
+import traceback
+import os
 
 _dbfile = 'foosdb.pickle'
 _dbhandle = None
@@ -19,12 +21,14 @@ def _getdb():
             _dbhandle = pickle.load(_s3db.read())
         except:
             print "Unable to load database, creating new one"
+            traceback.print_exc()
             _dbhandle = _newdb()
     return _dbhandle
 
 def _commitback():
     if _dbhandle is None:
         raise Exception("Handle is None?")
+    print "Commiting file to S3"
     f = open(_dbfile, 'rw')
     pickle.dump(_dbhandle, f)
     _gets3conn().put(_dbfile, f.read())

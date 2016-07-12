@@ -20,8 +20,3 @@ config:
     default: none
     global: true
     default: none
-  - name: SECRET
-    friendly_name: Shhhh
-    info: This is an secret option
-    type: secret
-    default: not secret though
